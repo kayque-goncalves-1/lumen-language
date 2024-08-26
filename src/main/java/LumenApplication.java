@@ -21,8 +21,6 @@ public class LumenApplication
 
             parser.prog();
 
-            System.out.println("Compilado com sucesso!");
-
             generateCode();
 
         }
