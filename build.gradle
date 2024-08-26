@@ -1,0 +1,33 @@
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'antlr'
+apply plugin: 'application'
+
+tasks.register('runApplication', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    mainClass = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "LumenApplication"
+}
+
+sourceCompatibility = 17
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+configurations {
+    compile {
+        extendsFrom = extendsFrom.findAll { it != configurations.antlr }
+    }
+}
+
+dependencies {
+    antlr "org.antlr:antlr4:4.7.1"
+    compile "org.antlr:antlr4-runtime:4.7.1"
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+}

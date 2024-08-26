@@ -1,0 +1,19 @@
+inicio
+
+inteiro a,b,c;
+
+a=1;
+b = 4;
+c= 2;
+
+se(a<b){
+ escreva(a);
+}
+
+se(b<a){
+ escreva(b);
+} senao{
+ escreva(c);
+}
+
+fim;
